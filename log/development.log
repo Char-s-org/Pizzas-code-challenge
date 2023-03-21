@@ -1,0 +1,401 @@
+  [1m[35m (92.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (162.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePizzas (20230320193414)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "pizzas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "ingredients" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230320193414"]]
+  [1m[36mTRANSACTION (142.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateRestaurants (20230320193646)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "restaurants" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "address" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230320193646"]]
+  [1m[36mTRANSACTION (133.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateRestaurantPizzas (20230320194150)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "restaurant_pizzas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "pizza_id" integer, "restaurant_id" integer, "price" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230320194150"]]
+  [1m[36mTRANSACTION (137.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-03-21 07:03:05.402532"], ["updated_at", "2023-03-21 07:03:05.402532"]]
+  [1m[36mTRANSACTION (73.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "RY Eatery"], ["address", "105 Torp Oval, Port Elidia, GA 44498-7286"], ["created_at", "2023-03-21 07:03:06.941120"], ["updated_at", "2023-03-21 07:03:06.941120"]]
+  [1m[36mTRANSACTION (133.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRestaurant Create (0.2ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "TT BBQ"], ["address", "Suite 728 97010 Raphael Inlet, Joseside, WV 26770-7176"], ["created_at", "2023-03-21 07:03:07.079201"], ["updated_at", "2023-03-21 07:03:07.079201"]]
+  [1m[36mTRANSACTION (106.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRestaurant Create (0.5ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Salty Bar & Grill"], ["address", "Suite 911 73234 Streich Corner, Sylvesterfurt, MA 68361"], ["created_at", "2023-03-21 07:03:07.193359"], ["updated_at", "2023-03-21 07:03:07.193359"]]
+  [1m[36mTRANSACTION (122.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRestaurant Create (0.7ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Blue Plate Grill & Tap"], ["address", "Apt. 313 594 Blanda Mill, Buckridgeborough, GA 06624-2512"], ["created_at", "2023-03-21 07:03:07.326135"], ["updated_at", "2023-03-21 07:03:07.326135"]]
+  [1m[36mTRANSACTION (121.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRestaurant Create (0.3ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "UIO Steakhouse"], ["address", "68933 Runte Stream, North Romanfort, DE 92839-9244"], ["created_at", "2023-03-21 07:03:07.456466"], ["updated_at", "2023-03-21 07:03:07.456466"]]
+  [1m[36mTRANSACTION (116.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRestaurant Create (0.6ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Fat Kitchen"], ["address", "14716 Durgan Run, Beierstad, VA 34881-1855"], ["created_at", "2023-03-21 07:03:07.580937"], ["updated_at", "2023-03-21 07:03:07.580937"]]
+  [1m[36mTRANSACTION (122.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRestaurant Create (0.6ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Sweet Diner"], ["address", "Apt. 766 69685 Wiza Trail, South Trey, NV 58342-3923"], ["created_at", "2023-03-21 07:03:07.714762"], ["updated_at", "2023-03-21 07:03:07.714762"]]
+  [1m[36mTRANSACTION (121.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRestaurant Create (0.6ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Smokestack Burger"], ["address", "744 Eusebio Springs, North Joey, KS 45304"], ["created_at", "2023-03-21 07:03:07.848206"], ["updated_at", "2023-03-21 07:03:07.848206"]]
+  [1m[36mTRANSACTION (132.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRestaurant Create (0.6ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Big House"], ["address", "Suite 750 9278 Boyd Summit, Rathton, NJ 06029-3182"], ["created_at", "2023-03-21 07:03:07.992237"], ["updated_at", "2023-03-21 07:03:07.992237"]]
+  [1m[36mTRANSACTION (132.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRestaurant Create (0.6ms)[0m  [1m[32mINSERT INTO "restaurants" ("name", "address", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Thirsty Grill"], ["address", "1741 Jeana Neck, Starkport, MN 81026"], ["created_at", "2023-03-21 07:03:08.136253"], ["updated_at", "2023-03-21 07:03:08.136253"]]
+  [1m[36mTRANSACTION (132.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (0.3ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Pasta Carbonara"], ["ingredients", "Sweet Potato"], ["created_at", "2023-03-21 07:03:08.289611"], ["updated_at", "2023-03-21 07:03:08.289611"]]
+  [1m[36mTRANSACTION (138.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (0.3ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Linguine with Clams"], ["ingredients", "Tempeh"], ["created_at", "2023-03-21 07:03:08.432895"], ["updated_at", "2023-03-21 07:03:08.432895"]]
+  [1m[36mTRANSACTION (117.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (0.7ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Pasta and Beans"], ["ingredients", "Brown Rice"], ["created_at", "2023-03-21 07:03:08.555810"], ["updated_at", "2023-03-21 07:03:08.555810"]]
+  [1m[36mTRANSACTION (101.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (0.5ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Stinky Tofu"], ["ingredients", "Chives"], ["created_at", "2023-03-21 07:03:08.665973"], ["updated_at", "2023-03-21 07:03:08.665973"]]
+  [1m[36mTRANSACTION (103.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (0.6ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Chicken Parm"], ["ingredients", "Lentils"], ["created_at", "2023-03-21 07:03:08.777566"], ["updated_at", "2023-03-21 07:03:08.777566"]]
+  [1m[36mTRANSACTION (112.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (1.0ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Risotto with Seafood"], ["ingredients", "Silverbeet"], ["created_at", "2023-03-21 07:03:08.899844"], ["updated_at", "2023-03-21 07:03:08.899844"]]
+  [1m[36mTRANSACTION (107.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (0.3ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mushroom Risotto"], ["ingredients", "Papaw"], ["created_at", "2023-03-21 07:03:09.019978"], ["updated_at", "2023-03-21 07:03:09.019978"]]
+  [1m[36mTRANSACTION (117.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (0.5ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Chicken Fajitas"], ["ingredients", "Pears"], ["created_at", "2023-03-21 07:03:09.143152"], ["updated_at", "2023-03-21 07:03:09.143152"]]
+  [1m[36mTRANSACTION (85.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (0.6ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Pasta Carbonara"], ["ingredients", "Barberry"], ["created_at", "2023-03-21 07:03:09.236459"], ["updated_at", "2023-03-21 07:03:09.236459"]]
+  [1m[36mTRANSACTION (90.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (0.6ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Pizza"], ["ingredients", "Feijoa"], ["created_at", "2023-03-21 07:03:09.336271"], ["updated_at", "2023-03-21 07:03:09.336271"]]
+  [1m[36mTRANSACTION (90.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (0.6ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Arepas"], ["ingredients", "Spelt"], ["created_at", "2023-03-21 07:03:09.436235"], ["updated_at", "2023-03-21 07:03:09.436235"]]
+  [1m[36mTRANSACTION (90.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (0.6ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Caprese Salad"], ["ingredients", "Omega Spread"], ["created_at", "2023-03-21 07:03:09.536148"], ["updated_at", "2023-03-21 07:03:09.536148"]]
+  [1m[36mTRANSACTION (90.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (0.6ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Seafood Paella"], ["ingredients", "Prunes"], ["created_at", "2023-03-21 07:03:09.635953"], ["updated_at", "2023-03-21 07:03:09.635953"]]
+  [1m[36mTRANSACTION (90.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (0.7ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Poutine"], ["ingredients", "Cantaloupe"], ["created_at", "2023-03-21 07:03:09.735866"], ["updated_at", "2023-03-21 07:03:09.735866"]]
+  [1m[36mTRANSACTION (97.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (0.7ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Tacos"], ["ingredients", "Kiwi Berries"], ["created_at", "2023-03-21 07:03:09.842968"], ["updated_at", "2023-03-21 07:03:09.842968"]]
+  [1m[36mTRANSACTION (101.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (0.3ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Ebiten maki"], ["ingredients", "Cantaloupe"], ["created_at", "2023-03-21 07:03:09.952092"], ["updated_at", "2023-03-21 07:03:09.952092"]]
+  [1m[36mTRANSACTION (77.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (0.6ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Bruschette with Tomato"], ["ingredients", "Flounder"], ["created_at", "2023-03-21 07:03:10.035291"], ["updated_at", "2023-03-21 07:03:10.035291"]]
+  [1m[36mTRANSACTION (98.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (0.6ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Pappardelle alla Bolognese"], ["ingredients", "Apples"], ["created_at", "2023-03-21 07:03:10.142337"], ["updated_at", "2023-03-21 07:03:10.142337"]]
+  [1m[36mTRANSACTION (101.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (0.8ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Pierogi"], ["ingredients", "English Spinach"], ["created_at", "2023-03-21 07:03:10.253410"], ["updated_at", "2023-03-21 07:03:10.253410"]]
+  [1m[36mTRANSACTION (82.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Create (0.7ms)[0m  [1m[32mINSERT INTO "pizzas" ("name", "ingredients", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Pork Sausage Roll"], ["ingredients", "Cucumber"], ["created_at", "2023-03-21 07:03:10.346101"], ["updated_at", "2023-03-21 07:03:10.346101"]]
+  [1m[36mTRANSACTION (90.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.4ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" WHERE "pizzas"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[36mRestaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started GET "/" for ::1 at 2023-03-21 10:03:44 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /var/lib/gems/3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /var/lib/gems/3.0.0/gems/railties-7.0.4.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.2ms | Allocations: 846)
+Completed 200 OK in 69ms (Views: 8.3ms | ActiveRecord: 0.0ms | Allocations: 4096)
+
+
+Started GET "/pizza" for ::1 at 2023-03-21 10:04:13 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/pizza"):
+  
+Started GET "/favicon.ico" for ::1 at 2023-03-21 10:04:14 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/pizzas" for ::1 at 2023-03-21 10:04:37 +0300
+Processing by PizzasController#index as HTML
+  [1m[36mPizza Load (0.4ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas"[0m
+  ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 1]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 2]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 3]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 4]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 5]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 6]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 7]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 8]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 9]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 10]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 11]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 12]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 13]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 14]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 15]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 16]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 17]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 18]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 19]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 20]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (160.22ms)
+Completed 500 Internal Server Error in 305ms (ActiveRecord: 6.8ms | Allocations: 67176)
+
+
+  
+NoMethodError (undefined method `ingedients' for #<Pizza id: 1, name: "Pasta Carbonara", ingredients: "Sweet Potato", created_at: "2023-03-21 07:03:08.289611000 +0000", updated_at: "2023-03-21 07:03:08.289611000 +0000">
+Did you mean?  ingredients
+               ingredients?
+               ingredients=):
+  
+app/controllers/pizzas_controller.rb:4:in `index'
+Started GET "/pizzas" for ::1 at 2023-03-21 10:08:38 +0300
+Processing by PizzasController#index as HTML
+  [1m[36mPizza Load (0.2ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas"[0m
+  ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 1]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 2]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 3]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 4]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 5]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 6]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 7]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 8]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 9]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 10]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 11]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 12]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 13]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 14]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 15]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 16]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 17]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 18]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 19]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mRestaurant Load (0.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurant_pizzas" ON "restaurants"."id" = "restaurant_pizzas"."restaurant_id" WHERE "restaurant_pizzas"."pizza_id" = ?[0m  [["pizza_id", 20]]
+[active_model_serializers]   ↳ app/controllers/pizzas_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (82.95ms)
+Completed 200 OK in 95ms (Views: 91.2ms | ActiveRecord: 5.0ms | Allocations: 38575)
+
+
+Started GET "/restaurants" for ::1 at 2023-03-21 10:08:54 +0300
+Processing by RestaurantsController#index as HTML
+  [1m[36mRestaurant Load (0.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/controllers/restaurants_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mRestaurantPizza Load (0.3ms)[0m  [1m[34mSELECT "restaurant_pizzas".* FROM "restaurant_pizzas" WHERE "restaurant_pizzas"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+[active_model_serializers]   ↳ app/controllers/restaurants_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mPizza Load (0.3ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" INNER JOIN "restaurant_pizzas" ON "pizzas"."id" = "restaurant_pizzas"."pizza_id" WHERE "restaurant_pizzas"."restaurant_id" = ?[0m  [["restaurant_id", 1]]
+[active_model_serializers]   ↳ app/controllers/restaurants_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mRestaurantPizza Load (0.3ms)[0m  [1m[34mSELECT "restaurant_pizzas".* FROM "restaurant_pizzas" WHERE "restaurant_pizzas"."restaurant_id" = ?[0m  [["restaurant_id", 2]]
+[active_model_serializers]   ↳ app/controllers/restaurants_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mPizza Load (0.3ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" INNER JOIN "restaurant_pizzas" ON "pizzas"."id" = "restaurant_pizzas"."pizza_id" WHERE "restaurant_pizzas"."restaurant_id" = ?[0m  [["restaurant_id", 2]]
+[active_model_serializers]   ↳ app/controllers/restaurants_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mRestaurantPizza Load (0.2ms)[0m  [1m[34mSELECT "restaurant_pizzas".* FROM "restaurant_pizzas" WHERE "restaurant_pizzas"."restaurant_id" = ?[0m  [["restaurant_id", 3]]
+[active_model_serializers]   ↳ app/controllers/restaurants_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mPizza Load (0.2ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" INNER JOIN "restaurant_pizzas" ON "pizzas"."id" = "restaurant_pizzas"."pizza_id" WHERE "restaurant_pizzas"."restaurant_id" = ?[0m  [["restaurant_id", 3]]
+[active_model_serializers]   ↳ app/controllers/restaurants_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mRestaurantPizza Load (0.2ms)[0m  [1m[34mSELECT "restaurant_pizzas".* FROM "restaurant_pizzas" WHERE "restaurant_pizzas"."restaurant_id" = ?[0m  [["restaurant_id", 4]]
+[active_model_serializers]   ↳ app/controllers/restaurants_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mPizza Load (0.2ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" INNER JOIN "restaurant_pizzas" ON "pizzas"."id" = "restaurant_pizzas"."pizza_id" WHERE "restaurant_pizzas"."restaurant_id" = ?[0m  [["restaurant_id", 4]]
+[active_model_serializers]   ↳ app/controllers/restaurants_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mRestaurantPizza Load (0.2ms)[0m  [1m[34mSELECT "restaurant_pizzas".* FROM "restaurant_pizzas" WHERE "restaurant_pizzas"."restaurant_id" = ?[0m  [["restaurant_id", 5]]
+[active_model_serializers]   ↳ app/controllers/restaurants_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mPizza Load (0.2ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" INNER JOIN "restaurant_pizzas" ON "pizzas"."id" = "restaurant_pizzas"."pizza_id" WHERE "restaurant_pizzas"."restaurant_id" = ?[0m  [["restaurant_id", 5]]
+[active_model_serializers]   ↳ app/controllers/restaurants_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mRestaurantPizza Load (0.2ms)[0m  [1m[34mSELECT "restaurant_pizzas".* FROM "restaurant_pizzas" WHERE "restaurant_pizzas"."restaurant_id" = ?[0m  [["restaurant_id", 6]]
+[active_model_serializers]   ↳ app/controllers/restaurants_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" INNER JOIN "restaurant_pizzas" ON "pizzas"."id" = "restaurant_pizzas"."pizza_id" WHERE "restaurant_pizzas"."restaurant_id" = ?[0m  [["restaurant_id", 6]]
+[active_model_serializers]   ↳ app/controllers/restaurants_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mRestaurantPizza Load (0.1ms)[0m  [1m[34mSELECT "restaurant_pizzas".* FROM "restaurant_pizzas" WHERE "restaurant_pizzas"."restaurant_id" = ?[0m  [["restaurant_id", 7]]
+[active_model_serializers]   ↳ app/controllers/restaurants_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" INNER JOIN "restaurant_pizzas" ON "pizzas"."id" = "restaurant_pizzas"."pizza_id" WHERE "restaurant_pizzas"."restaurant_id" = ?[0m  [["restaurant_id", 7]]
+[active_model_serializers]   ↳ app/controllers/restaurants_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mRestaurantPizza Load (0.1ms)[0m  [1m[34mSELECT "restaurant_pizzas".* FROM "restaurant_pizzas" WHERE "restaurant_pizzas"."restaurant_id" = ?[0m  [["restaurant_id", 8]]
+[active_model_serializers]   ↳ app/controllers/restaurants_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" INNER JOIN "restaurant_pizzas" ON "pizzas"."id" = "restaurant_pizzas"."pizza_id" WHERE "restaurant_pizzas"."restaurant_id" = ?[0m  [["restaurant_id", 8]]
+[active_model_serializers]   ↳ app/controllers/restaurants_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mRestaurantPizza Load (0.2ms)[0m  [1m[34mSELECT "restaurant_pizzas".* FROM "restaurant_pizzas" WHERE "restaurant_pizzas"."restaurant_id" = ?[0m  [["restaurant_id", 9]]
+[active_model_serializers]   ↳ app/controllers/restaurants_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mPizza Load (0.2ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" INNER JOIN "restaurant_pizzas" ON "pizzas"."id" = "restaurant_pizzas"."pizza_id" WHERE "restaurant_pizzas"."restaurant_id" = ?[0m  [["restaurant_id", 9]]
+[active_model_serializers]   ↳ app/controllers/restaurants_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mRestaurantPizza Load (0.1ms)[0m  [1m[34mSELECT "restaurant_pizzas".* FROM "restaurant_pizzas" WHERE "restaurant_pizzas"."restaurant_id" = ?[0m  [["restaurant_id", 10]]
+[active_model_serializers]   ↳ app/controllers/restaurants_controller.rb:5:in `index'
+[active_model_serializers]   [1m[36mPizza Load (0.1ms)[0m  [1m[34mSELECT "pizzas".* FROM "pizzas" INNER JOIN "restaurant_pizzas" ON "pizzas"."id" = "restaurant_pizzas"."pizza_id" WHERE "restaurant_pizzas"."restaurant_id" = ?[0m  [["restaurant_id", 10]]
+[active_model_serializers]   ↳ app/controllers/restaurants_controller.rb:5:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (78.43ms)
+Completed 200 OK in 104ms (Views: 98.5ms | ActiveRecord: 4.6ms | Allocations: 37753)
+
+
